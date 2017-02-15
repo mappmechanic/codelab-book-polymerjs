@@ -22,44 +22,154 @@ class UsingElement extends Component {
 	const pageElements = [{
 		type: elementTypes.TEXT,
 		value:`## Using a Polymer Element
-In this whole Polymer course we will be building a **Personal Dashboard** which can also be used as an **Enterprise Dashboard** with little bit of tweaking.
-
-Follow the whole workshop or individual topics to understand & have hands-on important concepts/elements in the Polymer ecosystem.
-
+In order to use any polymer element, we have to install its bower component using the **bower install** command. We will use a public open source component from **customelements.io** to display circle progress bars to show progress of some key metrics.
 ### Step1:
 
-Use the following command to create the initial project folder wherever you want the project to be: 
+Use the following command: 
 `		},
 	{
 		type: elementTypes.CODE_SNIPPET,
 		lang: languages.BASH,
-		value:`mkdir personal-dashboard
-cs personal-dashboard`		
+		value:`bower install progress-bubble -S`		
 	},
 	{
 		type: elementTypes.TEXT,
-		value: `### Step2: Starter Template
-We will be using the Polymer CLI's **init** command along with its **starter-kit** template to get a production ready App Structure on which we will begin our journey of creating our Personal Dashboard.
-
-In the same folder, run the following command on the terminal/command prompt:`
+		value: `### Step2: Import Element
+After installing the bower component, we will be using the HTML Imports concept to import the polymer element using the link tag. Add the following code in the top imports part of **my-view1.html** :`
 	},
 	{
 		type: elementTypes.CODE_SNIPPET,
-		lang: languages.BASH,
-		value:`polymer init starter-kit`		
+		lang: languages.HTML,
+		value:`<link rel="import" href="../bower_components/progress-bubble/progress-bubble.html">`		
 	},
 	{
 		type: elementTypes.TEXT,
-		value: `### Step3: Run the Polymer Server
-Now, we will run the polymer server to startup the dev server in order to see the output of what we are building in the browser. It also has a hot reloader which refreshes your web app as soon as you make any change in the source code.
-
-In the same folder, run the following command on the terminal/command prompt:`
+		value: `### Step3: Add the Polymer Element as HTML Tag
+Now, we will add the element tag in the HTML where ever we want to display the component. We can add it in the template tag of **my-view1.html**:`
 	},
 	{
 		type: elementTypes.CODE_SNIPPET,
-		lang: languages.BASH,
-		value:`polymer server --open`		
-	}
+		lang: languages.HTML,
+		value:`<progress-bubble value="40" stroke-width="12">
+	<b>40</b>
+</progress-bubble>`		
+	},
+	{
+		type: elementTypes.TEXT,
+		value: `### Step4: 
+We will use this component to display important metrics number which we want to track in this dashboard. For the sake of this tutorial adding few metrics, which I want to track in my dashboard.
+
+Add the following html code in the &lt;div class="card"&gt; replacing the existing code`
+	},
+	{
+		type: elementTypes.CODE_SNIPPET,
+		lang: languages.HTML,
+		value:`  <div class="metricsNos">
+	<div class="metricCircle">
+		<div class="label">
+			Sessions
+		</div>
+		<progress-bubble id="#sessionVal" value="30" stroke-width="12">
+			<b>3/10</b>
+		</progress-bubble>
+	</div>
+	<div class="metricCircle blogs">
+		<div class="label">
+			Blogs
+		</div>
+		<progress-bubble value="50" stroke-width="12">
+			<b>5/10</b>
+		</progress-bubble>
+	</div>
+	<div class="metricCircle books">
+		<div class="label">
+			Books
+		</div>
+		<progress-bubble value="33.33" stroke-width="12">
+			<b>1/3</b>
+		</progress-bubble>
+	</div>
+	<div class="metricCircle apps">
+		<div class="label">
+			Apps
+		</div>
+		<progress-bubble value="20" stroke-width="12">
+			<b>1/5</b>
+		</progress-bubble>
+	</div>
+	<div class="metricCircle codelabs">
+		<div class="label">
+			Codelabs
+		</div>
+		<progress-bubble value="40" stroke-width="12">
+			<b>2/5</b>
+		</progress-bubble>
+	</div>
+</div>`		
+	},
+	{
+		type: elementTypes.TEXT,
+		value: `### Step5: Add Styling
+We will add some styling for the progress bubble to customise it and add different colors to different ones.
+
+Add the following code before the div card:`
+	},
+	{
+		type: elementTypes.CODE_SNIPPET,
+		lang: languages.HTML,
+		value:`<!-- Custom styling and stroke-width -->
+    <style is="custom-style">
+      progress-bubble {
+          margin: 10px auto;
+        --progress-bubble-stroke-color: rgba(255, 0, 0, 0.8);
+        --progress-bubble-stroke-linecap: butt;
+        --progress-bubble-bg-stroke-color: rgba(193, 193, 193, 0.2);
+        --progress-bubble-background: transparent;
+        --progress-bubble-reflection-display: none;
+      }
+
+      .blogs progress-bubble{
+        --progress-bubble-stroke-color:#9B59B6;
+      }
+
+      .books progress-bubble{
+        --progress-bubble-stroke-color:#E67E22;
+      }
+
+      .apps progress-bubble{
+        --progress-bubble-stroke-color:#2ECC71;
+      }
+
+      .codelabs progress-bubble{
+        --progress-bubble-stroke-color:#F1C40F;
+      }
+
+      b{
+        color: #000;
+        text-shadow: none;
+      }
+
+      .metricsNos{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .metricCircle{
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        justify-content: center;
+      }
+
+      .label{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>`		
+	},
 	];
 
 		return (

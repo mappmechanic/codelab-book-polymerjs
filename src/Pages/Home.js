@@ -13,7 +13,6 @@ This is a special place where you can get to learn PolymerJS. This is hand-craft
 Quick Links
 - [Slides for this Workshop](#/introduction/ppts)
 - [About](#/introduction/about)
-- [Angular2 Exercises](#/angular/settingup)
 - [Contributors](#/introduction/contributors)
 
 For details topics like usage of Setting Up, Tutorials, Code Snippets etc. follow the TOC given on the left.

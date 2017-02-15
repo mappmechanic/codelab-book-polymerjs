@@ -78,6 +78,41 @@ const PagesList = {
         menuLabel: "Using an Element",
         component: PolymerElements.UsingElement
       },
+      {
+        path: "paper-elements",
+        menuLabel: "Paper Elements",
+        component: PolymerElements.PaperElements
+      },
+      {
+        path: "iron-elements",
+        menuLabel: "Iron Elements",
+        component: PolymerElements.IronElements
+      },
+      {
+        path: "layout-elements",
+        menuLabel: "Layout Elements",
+        component: PolymerElements.LayoutElements
+      },
+      {
+        path: "google-components",
+        menuLabel: "Google Web Components",
+        component: PolymerElements.GoogleComponents
+      },
+      {
+        path: "gold-elements",
+        menuLabel: "Gold Elements",
+        component: PolymerElements.GoldElements
+      },
+      {
+        path: "app-elements",
+        menuLabel: "App Elements",
+        component: PolymerElements.AppElements
+      },
+      {
+        path: "custom-elements",
+        menuLabel: "Custom Elements",
+        component: PolymerElements.CustomElements
+      },
     ]
   },
 ]};
